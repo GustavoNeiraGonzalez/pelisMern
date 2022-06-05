@@ -4,17 +4,17 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { InicioSesion } from './pages/InicioSesion';
 import { Landing } from './pages/Principal';
 import bootstrap from 'bootstrap'
-
+import { TopHeader } from './pages/header';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <header>
-      <Landing/>
+      <TopHeader/>
     </header>
     <main>
       <Routes>
-        <Route path="/" element={<div>home</div>}/>
-        <Route path="/users" element={<div>users</div>}/>
+        <Route path="/" element={<Landing/>}/>
+        <Route path="/InicioSesion" element={<InicioSesion/>}/>
         <Route  path="*" element={<Navigate replace to="/"/>}/>
       </Routes>
     </main>

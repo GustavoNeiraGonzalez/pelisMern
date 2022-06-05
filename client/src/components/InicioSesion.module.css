@@ -1,0 +1,11 @@
+.minwidthborder{
+    min-width: 300px;
+    border-style: groove;
+    text-align: center;
+}
+.buttonre{
+    margin-top: 3px;
+    width: fit-content;
+    min-width: 100px;
+    align-self: center;
+}

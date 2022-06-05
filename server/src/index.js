@@ -13,6 +13,7 @@ app.get('/', async (req,res) =>{
     const user = new UserModel({name:"zapato",password:"123",email:"zapato@asd.com"});
     try{
         await user.save();
+        res.send("inserted data")
     }catch(err){
         console.log(err)
     }
