@@ -1,23 +1,31 @@
 const express = require('express')
 const mongoose = require('mongoose');
 require("dotenv").config();
+const cors = require('cors')
 const app = express();
 const port = process.env.PORT || 9000;//process.env.port es propio dejavascript
 
 const UserModel = require("./models/User");
-//middlewares
+
+app.use(express.json())
+app.use(cors())
 
 
 //routes
-app.get('/', async (req,res) =>{
-    const user = new UserModel({name:"zapato",password:"123",email:"zapato@asd.com"});
+app.post('/insert', async (req,res) =>{
+    //*todo esto viene desde el front a traves de axios en iniciosesion.jsx
+    const name = req.body.name;
+    const email = req.body.email;
+    const password = req.body.pass; 
+    //*todo esto viene desde el front a traves de axios en iniciosesion.jsx
+
+    const user = new UserModel({name:name,password:password,email:email});
     try{
         await user.save();
         res.send("inserted data")
     }catch(err){
         console.log(err)
     }
-    res.send('welcome To my API')
 })
 //mongodb connection
 mongoose

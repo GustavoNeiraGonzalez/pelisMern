@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import style from "../components/InicioSesion.module.css"
+import axios from "axios"
 
 export function InicioSesion(){
     const [email, setemail] = useState('');
@@ -7,7 +8,11 @@ export function InicioSesion(){
     const [pass, setpass] = useState('');
     
     const addToList = () => {
-        console.log(email + name+ pass)
+        axios.post('http://localhost:9000/insert', {
+            email:email,
+            name:name,
+            pass:pass
+        })
     }
 
     return (
